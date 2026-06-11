@@ -9,12 +9,13 @@ DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./subflow.db")
 
 if DATABASE_URL.startswith("sqlite"):
     connect_args = {"check_same_thread": False}
-elif "neon.tech" in DATABASE_URL or "sslmode" in DATABASE_URL:
-    connect_args = {"sslmode": "require"}
+    engine = create_engine(DATABASE_URL, connect_args=connect_args)
+elif DATABASE_URL.startswith("postgresql"):
+    url = DATABASE_URL.replace("postgresql://", "postgresql+asyncpg://").replace("postgresql+asyncpg+asyncpg", "postgresql+asyncpg")
+    engine = create_engine(url.replace("+asyncpg", ""), connect_args={"sslmode": "require"})
 else:
-    connect_args = {}
+    engine = create_engine(DATABASE_URL)
 
-engine = create_engine(DATABASE_URL, connect_args=connect_args)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
