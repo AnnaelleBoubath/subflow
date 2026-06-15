@@ -70,11 +70,7 @@ export default function Login() {
           </button>
         </form>
 
-        <div className="login-hint">
-          <p>Comptes de démo :</p>
-          <code>admin@subflow.cg / admin123</code><br/>
-          <code>agent@subflow.cg / agent123</code>
-        </div>
+        
       </div>
     </div>
   );

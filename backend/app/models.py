@@ -115,6 +115,8 @@ class Abonne(Base):
     date_inscription  = Column(Date, default=date.today, nullable=False)
     date_expiration   = Column(Date, nullable=True)
 
+    cree_par      = Column(Integer, ForeignKey("utilisateurs.id"), nullable=True)
+    cree_par_user = relationship("Utilisateur", foreign_keys=[cree_par])
     cree_le    = Column(DateTime(timezone=True), server_default=func.now())
     modifie_le = Column(DateTime(timezone=True), onupdate=func.now())
 

@@ -174,7 +174,7 @@ export default function Abonnes() {
 
       <div className="card" style={{marginTop:16}}>
         <table>
-          <thead><tr><th>#</th><th>Nom complet</th><th>Numéro</th><th>Adresse</th><th>Tarif</th><th>Statut</th><th>Inscription</th><th>Actions</th></tr></thead>
+          <thead><tr><th>#</th><th>Nom complet</th><th>Numéro</th><th>Adresse</th><th>Tarif</th><th>Statut</th><th>Inscription</th><th>Ajoute par</th><th>Actions</th></tr></thead>
           <tbody>
             {filtered.length === 0 ? (
               <tr><td colSpan="8" style={{textAlign:'center',padding:'40px 0',color:'var(--muted)'}}>Aucun abonné trouvé</td></tr>
@@ -191,7 +191,7 @@ export default function Abonnes() {
                 <td className="muted" style={{fontSize:12}}>{a.adresse}</td>
                 <td>{a.tarif ? <span className={`type-badge type-${a.tarif.type.toLowerCase()}`}>{a.tarif.type}</span> : <span className="muted">—</span>}</td>
                 <td><span className={`status-badge ${statutMeta[a.statut].css}`}>{statutMeta[a.statut].label}</span></td>
-                <td className="muted" style={{fontSize:12}}>{a.date_inscription}</td>
+                <td className="muted" style={{fontSize:12}}>{a.date_inscription}</td><td className="muted" style={{fontSize:12}}>{a.cree_par_user ? a.cree_par_user.prenom + " " + a.cree_par_user.nom : "—"}</td>
                 <td>
                   <div style={{display:'flex',gap:6}}>
                     <button className="action-btn" onClick={()=>setModal({type:'edit',abonne:a})}>✏️ Modifier</button>

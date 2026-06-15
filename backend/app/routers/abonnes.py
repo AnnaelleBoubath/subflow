@@ -62,7 +62,7 @@ def creer_abonne(
     existant = db.query(Abonne).filter(Abonne.numero == data.numero).first()
     if existant:
         raise HTTPException(status_code=400, detail="Ce numéro est déjà utilisé")
-    abonne = Abonne(**data.model_dump())
+    abonne = Abonne(**data.model_dump(), cree_par=current_user.id)
     db.add(abonne)
     db.commit()
     db.refresh(abonne)

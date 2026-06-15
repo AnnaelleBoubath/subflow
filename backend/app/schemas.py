@@ -46,6 +46,7 @@ class TarifOut(BaseModel):
     prix: float
     description: Optional[str]
     cree_le: Optional[datetime]
+    cree_par_nom: Optional[str] = None
 
     class Config:
         from_attributes = True
@@ -83,6 +84,7 @@ class AbonneOut(BaseModel):
     date_inscription: date
     date_expiration: Optional[date]
     cree_le: Optional[datetime]
+    cree_par_nom: Optional[str] = None
 
     class Config:
         from_attributes = True
@@ -113,6 +115,7 @@ class PaiementOut(BaseModel):
     abonne: Optional[AbonneOut]
     enregistre_par: Optional[int]
     cree_le: Optional[datetime]
+    cree_par_nom: Optional[str] = None
 
     class Config:
         from_attributes = True
