@@ -22,7 +22,7 @@ export default function Sidebar() {
 
   return (
     <aside className="sidebar">
-      <div className="logo">Sub<span>Flow</span></div>
+      <div className="logo"><img src="/logo.jpeg" alt="Bkv Collect" style={{height:40, objectFit:"contain"}} /></div>
       <nav className="nav">
         {navItems.map(item => (
           <NavLink key={item.to} to={item.to} end={item.to === '/'}

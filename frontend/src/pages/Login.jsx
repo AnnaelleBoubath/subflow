@@ -27,7 +27,7 @@ export default function Login() {
   return (
     <div className="login-page">
       <div className="login-card">
-        <div className="login-logo">Sub<span>Flow</span></div>
+        <div className="login-logo"><img src="/logo.jpeg" alt="Bkv Collect" style={{height:60, objectFit:"contain"}} /></div>
         <h2 className="login-title">Connexion</h2>
         <p className="login-sub">Accédez à votre espace de gestion</p>
 
