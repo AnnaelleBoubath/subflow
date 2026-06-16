@@ -1,3 +1,10 @@
+
+// Keep-alive : reveille le backend Render toutes les 14 minutes
+setInterval(() => {
+  fetch('https://subflow-api-844f.onrender.com')
+    .catch(() => {});
+}, 14 * 60 * 1000);
+
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App.jsx';
