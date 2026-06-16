@@ -19,7 +19,21 @@ export default function Layout() {
       <Sidebar />
       <div className="main">
         <Topbar title={title} />
-        <main className="content">
+        <main className="content" style={{position:"relative"}}>
+          <div style={{
+            position:"fixed",
+            top:"50%",
+            left:"55%",
+            transform:"translate(-50%, -50%) rotate(-30deg)",
+            fontSize:"120px",
+            fontWeight:"900",
+            color:"rgba(255,255,255,0.04)",
+            pointerEvents:"none",
+            zIndex:0,
+            whiteSpace:"nowrap",
+            userSelect:"none",
+            fontFamily:"Arial"
+          }}>BKV COLLECT</div>
           <Outlet />
         </main>
       </div>
