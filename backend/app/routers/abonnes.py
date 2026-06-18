@@ -37,7 +37,14 @@ def liste_abonnes(
         query = query.filter(Abonne.statut == statut)
     if tarif_id:
         query = query.filter(Abonne.tarif_id == tarif_id)
-    return query.offset(skip).limit(limit).all()
+    abonnes = query.offset(skip).limit(limit).all()
+    result = []
+    for a in abonnes:
+        out = AbonneOut.model_validate(a)
+        if a.cree_par_user:
+            out.cree_par_nom = a.cree_par_user.prenom + " " + a.cree_par_user.nom
+        result.append(out)
+    return result
 
 
 @router.get("/{abonne_id}", response_model=AbonneOut)
