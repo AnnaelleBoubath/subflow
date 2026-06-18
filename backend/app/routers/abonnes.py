@@ -20,7 +20,7 @@ def liste_abonnes(
     statut: Optional[StatutAbonneEnum] = Query(None),
     tarif_id: Optional[int] = Query(None),
     skip: int = 0,
-    limit: int = 100,
+    limit: int = 1000,
     db: Session = Depends(get_db),
     _: Utilisateur = Depends(get_current_user),
 ):
