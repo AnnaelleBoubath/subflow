@@ -56,7 +56,7 @@ def get_abonne(
 def creer_abonne(
     data: AbonneCreate,
     db: Session = Depends(get_db),
-    _: Utilisateur = Depends(get_current_user),
+    current_user: Utilisateur = Depends(get_current_user),
 ):
     # Vérifier numéro unique
     existant = db.query(Abonne).filter(Abonne.numero == data.numero).first()
