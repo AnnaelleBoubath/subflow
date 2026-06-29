@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
-const BASE_URL = 'http://localhost:8000';
+const BASE_URL = 'https://subflow-api-844f.onrender.com';
 function getToken() { return localStorage.getItem('subflow_token'); }
 
 async function apiFetch(path, options = {}) {
